@@ -7,11 +7,10 @@ import {
   FaFire,
 } from "react-icons/fa";
 import { GiMoebiusTriangle } from "react-icons/gi";
-import { FaCrown } from "react-icons/fa6";
 import { IoChatboxSharp, IoSend } from "react-icons/io5";
-import { MdModeEdit, MdChatBubble } from "react-icons/md";
+import { MdModeEdit } from "react-icons/md";
 import { TbLogout2 } from "react-icons/tb";
-import { FiSearch, FiPhone, FiThumbsUp, FiEye } from "react-icons/fi";
+import { FiSearch, FiPhone } from "react-icons/fi";
 import { useState } from "react";
 import { GrAttachment } from "react-icons/gr";
 import {
@@ -35,7 +34,6 @@ import Nat1 from "./assets/nat1.jpg";
 import Nat2 from "./assets/nat2.jpg";
 import Nat3 from "./assets/nat3.jpg";
 import Nat4 from "./assets/nat4.jpg";
-
 import "./pract.css";
 
 export const Pract = () => {
@@ -158,7 +156,7 @@ export const Pract = () => {
 
   return (
     <div className="flex h-screen bg-black overflow-hidden">
-      {/* ── Overlay (sm only) ── */}
+      {/* Overlay (sm only) */}
       {navOpen && (
         <div
           className="fixed inset-0 bg-black/50 z-40 sm:hidden"
@@ -166,7 +164,7 @@ export const Pract = () => {
         />
       )}
 
-      {/* ── Column 1 — Navbar ── */}
+      {/*Column 1Navbar*/}
       <div
         className={`
           fixed sm:relative z-50 sm:z-auto
@@ -176,78 +174,102 @@ export const Pract = () => {
           sm:translate-x-0
         `}
       >
-        <div className="flex flex-col h-full px-2 py-4 overflow-y-auto  md:pt-10 lg:pt-0">
+        <div className="flex flex-col h-full px-2 py-4   md:pt-1 lg:pt-0">
           {/* Top - Logo */}
-          <div className="flex justify-center pb-4">
-            <GiMoebiusTriangle className="text-white size-10 md:size-8 lg:size-10 mt-8" />
+          <div className="flex justify-center pb-4 md:pb-2 lg:pb-4">
+            <GiMoebiusTriangle className="text-white size-4 md:size-5 lg:size-8 mt-0 md:mt-2 lg:mt-8" />
           </div>
 
           {/* Middle - Nav Items */}
-          <div className="flex-1 flex flex-col justify-center gap-5 md:gap-8 lg:gap-5">
-            <div className="flex flex-col items-center gap-1 cursor-pointer hover:text-white transition-colors">
-              <IoChatboxSharp className="size-8 md:size-7 lg:size-7" />
-              <div className="text-[17px] md:text-[16px] text-center lg:text-[12px]  ">
+          <div className="flex-1 flex flex-col justify-center gap-0 md:gap-0 lg:gap-1">
+            <div className="flex flex-col items-center gap-1 cursor-pointer hover:bg-gray-700 hover:text-white transition-all duration-200 rounded-xl w-full py-0.5 md:py-0.5 lg:py-1 px-1">
+              {/* Icon wrapper with badge */}
+              <div className="relative">
+                <IoChatboxSharp className="size-4 md:size-5 lg:size-7" />
+                {/* Notification badge */}
+                <span
+                  className="absolute -top-1 -right-1 bg-red-500 text-white rounded-full flex items-center justify-center leading-none 
+  text-[7px] w-3 h-3 
+  md:text-[7px] md:w-4 md:h-4 
+  lg:text-[10px] lg:w-5 lg:h-5"
+                >
+                  43
+                </span>
+              </div>
+              <div className="text-[10px] md:text-[9px] text-center lg:text-[12px]">
                 All chats
               </div>
             </div>
 
-            <div className="flex flex-col items-center gap-1 cursor-pointer hover:text-white transition-colors">
-              <FaFolder className="size-8 md:size-7 lg:size-7" />
-              <div className="text-[17px] md:text-[16px] lg:text-[12px] text-center ">
-                Work
+            <div className="flex flex-col items-center gap-1 cursor-pointer hover:bg-gray-700 hover:text-white transition-all duration-200 rounded-xl w-full py-0.5 md:py-0.5 lg:py-1 px-1">
+              {/* Icon wrapper with badge */}
+              <div className="relative">
+                <FaFolder className="size-4 md:size-5 lg:size-7" />
+                {/* Notification badge */}
+                <span
+                  className="absolute -top-1 -right-1 bg-red-500 text-white rounded-full flex items-center justify-center leading-none 
+  text-[7px] w-3 h-3 
+  md:text-[7px] md:w-4 md:h-4 
+  lg:text-[10px] lg:w-5 lg:h-5"
+                >
+                  4
+                </span>
+              </div>
+              <div className="text-[10px] md:text-[9px] text-center lg:text-[12px]">
+                work
               </div>
             </div>
 
-            <div className="flex flex-col items-center gap-1 cursor-pointer hover:text-white transition-colors">
-              <FaFolder className="size-8 md:size-7 lg:size-7" />
-              <div className="text-[17px] md:text-[16px] lg:text-[12px] text-center ">
+            <div className="flex flex-col items-center gap-1 cursor-pointer hover:bg-gray-700 hover:text-white transition-all duration-200 rounded-xl w-full py-0.5 md:py-0.5 lg:py-1 px-1">
+              <FaFolder className="size-4 md:size-5 lg:size-7" />
+              <div className="text-[10px] md:text-[9px] lg:text-[12px] text-center ">
                 Friends
               </div>
             </div>
 
-            <div className="flex flex-col items-center gap-1 cursor-pointer hover:text-white transition-colors">
-              <FaFolder className="size-8 md:size-7 lg:size-7" />
-              <div className="text-[17px] md:text-[16px] lg:text-[12px] text-center ">
+            <div className="flex flex-col items-center gap-1 cursor-pointer hover:bg-gray-700 hover:text-white transition-all duration-200 rounded-xl w-full py-0.5 md:py-0.5 lg:py-1 px-1">
+              <FaFolder className="size-4 md:size-5 lg:size-7" />
+              <div className="text-[10px] md:text-[9px] lg:text-[12px] text-center ">
                 News
               </div>
             </div>
 
-            <div className="flex flex-col items-center gap-1 cursor-pointer hover:text-white transition-colors">
-              <FaArchive className="size-8 md:size-7 lg:size-7" />
-              <div className="text-[17px] md:text-[16px] lg:text-[12px] text-center ">
+            <div className="flex flex-col items-center gap-1 cursor-pointer hover:bg-gray-700 hover:text-white transition-all duration-200 rounded-xl w-full py-0.5 md:py-0.5 lg:py-1 px-1">
+              <FaArchive className="size-4 md:size-5 lg:size-7" />
+              <div className="text-[10px] md:text-[9px] lg:text-[12px] text-center ">
                 Archive chats
               </div>
             </div>
 
             <hr className="border-gray-700 my-1" />
 
-            <div className="flex flex-col items-center gap-1 cursor-pointer hover:text-white transition-colors">
-              <FaUserAlt className="size-8 md:size-7 lg:size-7" />
-              <div className="text-[17px] md:text-[16px] lg:text-[12px] text-center ">
+            <div className="flex flex-col items-center gap-1 cursor-pointer hover:bg-gray-700 hover:text-white transition-all duration-200 rounded-xl w-full py-0.5 md:py-0.5 lg:py-1 px-1">
+              <FaUserAlt className="size-4 md:size-5 lg:size-7" />
+              <div className="text-[10px] md:text-[9px] lg:text-[12px] text-center ">
                 Profile
               </div>
             </div>
 
-            <div className="flex flex-col items-center gap-1 cursor-pointer hover:text-white transition-colors">
-              <MdModeEdit className="size-8 md:size-7 lg:size-7" />
-              <div className="text-[19px]  md:text-[18px] lg:text-[12px] text-center ">
+            <div className="flex flex-col items-center gap-1 cursor-pointer hover:bg-gray-700 hover:text-white transition-all duration-200 rounded-xl w-full py-0.5 md:py-0.5 lg:py-1 px-1">
+              <MdModeEdit className="size-4 md:size-5 lg:size-7" />
+              <div className="text-[10px]  md:text-[9px] lg:text-[12px] text-center ">
                 Edit
               </div>
             </div>
           </div>
 
           {/* Bottom - Logout */}
-          <div className="flex flex-col items-center gap-1 cursor-pointer hover:text-white transition-colors">
-            <TbLogout2 className="size-8 md:size-7 lg:size-7" />
-            <div className="text-[17px]  md:text-[16px] lg:text-[12px] text-center ">
+          <div className="flex flex-col items-center gap-1 cursor-pointer hover:bg-gray-700 hover:text-white transition-all duration-200 rounded-xl w-full py-0.5 md:py-0.5 lg:py-1 px-1">
+            <TbLogout2 className="size-4 md:size-5 lg:size-7" />
+            <div className="text-[10px]  md:text-[9px] lg:text-[12px] text-center ">
               Logout
             </div>
           </div>
         </div>
       </div>
 
-      {/* ── Column 2 — Chat List ── */}
-      <div className="w-full md:w-60 lg:w-64 xl:w-72 flex-shrink-0 bg-white my-2 rounded-none md:rounded-l-3xl md:rounded-r-none overflow-y-auto no-scrollbar">
+      {/*Column 2 — Chat List*/}
+      <div className="w-full md:w-60 lg:w-52 xl:w-72 flex-shrink-0 bg-white my-0 md:my-2  rounded-none md:rounded-l-3xl md:rounded-r-none overflow-y-auto no-scrollbar">
         {/* Search Bar */}
         <div className="sticky top-0 z-10 bg-white px-3 pt-3 pb-2">
           <div className="flex items-center gap-2">
@@ -260,9 +282,13 @@ export const Pract = () => {
               <BsThreeDotsVertical size={18} />
             </button>
 
-            <div className="flex items-center gap-2 bg-gray-100 rounded-full  px-4 py-2 w-full ">
-              <FiSearch size={16} className="text-gray-400 shrink-0" />
-              <span className="text-gray-400 text-sm truncate">Search</span>
+            <div className="flex items-center gap-2 bg-gray-300 rounded-xl  px-4 py-2 w-full ">
+              <FiSearch size={16} className="text-gray-700 shrink-0" />
+              <input
+                type="text"
+                placeholder="Search"
+                className="bg-transparent outline-none text-sm text-gray-900 w-full placeholder-gray-700"
+              />
             </div>
           </div>
         </div>
@@ -281,15 +307,7 @@ export const Pract = () => {
                 ) : (
                   <img src={chat.avatar} alt={chat.name} className="avatar" />
                 )}
-                {chat.badge && (
-                  <span
-                    className={`badge ${chat.badgeColor === "blue" ? "badge-blue" : "badge-red"}`}
-                  >
-                    {chat.badge}
-                  </span>
-                )}
               </div>
-
               {/* Info */}
               <div className="chat-info">
                 <p className="chat-name">{chat.name}</p>
@@ -307,35 +325,41 @@ export const Pract = () => {
                       <BsMicFill size={10} /> Voice message
                     </span>
                   ) : (
-                    <span>{chat.preview}</span>
+                    <span className="preview-text">{chat.preview}</span>
                   )}
                 </div>
               </div>
-
               {/* Meta */}
               <div className="chat-meta">
                 <span className="chat-time">{chat.time}</span>
-                {chat.pinned && <BsPinAngleFill className="pin-icon" />}
-              </div>
+                <div className="flex items-center gap-1">
+                  {chat.badge && (
+                    <span className="chat-badge">{chat.badge}</span>
+                  )}
+                  {chat.pinned && <BsPinAngleFill className="pin-icon" />}
+                </div>
+              </div>{" "}
             </div>
           ))}
         </div>
       </div>
 
       {/* Column 3 - Main Chat (hidden on sm, visible on md+) */}
-      <div className="hidden md:flex flex-1 min-w-0 bg-gray-50 my-2 mr-1 rounded-r-3xl flex-col">
+      <div className="hidden md:flex flex-[2] lg:flex-[3]  min-w-0 bg-gray-50 my-2 mr-1 rounded-r-3xl flex-col">
         {/* Header */}
         <div className="flex justify-between pt-4 ps-3 bg-gray-50 rounded-tr-3xl lg:rounded-tr-3xl sticky top-0 z-10">
           <div>
-            <div className="text-2xl lg:text-3xl font-semibold ">
+            <div className="text-2xl md:text-xl lg:text-3xl  font-medium ">
               Design chat
             </div>
-            <div className="text-gray-500 text-sm">23 members, 10 online</div>
+            <div className="text-gray-400 text-sm md:text-xs lg:text-sm">
+              23 members, 10 online
+            </div>
           </div>
-          <div className="flex gap-3 text-gray-500 pt-3 pr-3">
-            <FiSearch size={22} />
-            <FiPhone size={22} />
-            <BsThreeDotsVertical size={22} />
+          <div className="flex gap-5 text-gray-400 pt-3 pr-3 ">
+            <FiSearch className="size-1 md:size-5 lg:size-7" />
+            <FiPhone className="size-1 md:size-5 lg:size-7" />
+            <BsThreeDotsVertical className="size-1 md:size-5 lg:size-7" />
           </div>
         </div>
 
@@ -349,21 +373,21 @@ export const Pract = () => {
                 alt="Jasmin Lowery"
                 className="w-10 h-10 rounded-xl object-cover flex-shrink-0 border-2 border-rose-200"
               />
-              <div className="bg-slate-200 border border-slate-100 rounded-2xl rounded-tl-sm px-3 py-3 w-fit">
-                <p className="text-[13px] font-semibold text-violet-900 mb-2 tracking-wide">
+              <div className="design-chat  border border-slate-100 rounded-xl rounded-bl-none px-3 py-3 w-fit">
+                <p className="text-[13px] md:text-[10px] lg:text-[13px]  font-semibold text-violet-900 mb-2 tracking-wide">
                   Jasmin Lowery
                 </p>
-                <p className="text-[13.5px] leading-snug text-slate-600">
+                <p className="text-[13.5px] md:text-[10.5px] lg:text-[13px] leading-snug message-area">
                   I added new flows to our design system.
                   <br />
                   Now you can use them for your projects!
                 </p>
-                <div className="flex justify-between text-slate-500 text-xs pt-1">
-                  <div className="flex items-center gap-1">
-                    <FaThumbsUp /> 4
+                <div className="flex justify-between text-slate-400 text-xs pt-1">
+                  <div className="flex items-center gap-1 ">
+                    <FaThumbsUp /> <span className="text-black">4</span>
                   </div>
                   <div className="flex gap-1">
-                    <div className="flex items-center">
+                    <div className="flex items-center gap-1">
                       <FaEye /> 23
                     </div>
                     <div>09:20</div>
@@ -373,19 +397,19 @@ export const Pract = () => {
             </div>
           </div>
 
-          {/* Message 2 - Alex (continuation, no avatar) */}
+          {/* Message 2 - Alex */}
           <div className="w-full ps-12">
             <div className="flex items-end gap-1">
-              <div className="bg-slate-200 border border-slate-100 rounded-2xl rounded-tl-sm px-3 py-3 w-fit">
-                <p className="text-[13px] font-semibold text-violet-900 mb-2 tracking-wide">
+              <div className="design-chat  border border-slate-100 rounded-2xl rounded-tl-sm px-3 py-3 w-fit">
+                <p className="text-[13px] md:text-[10px] lg:text-[13px]  font-semibold text-violet-900 mb-2 tracking-wide">
                   Alex Hunt
                 </p>
-                <p className="text-[13.5px] leading-snug text-slate-600">
+                <p className="text-[13.5px] md:text-[10.5px] lg:text-[13px] leading-snug message-area">
                   Hey Guys! Important News!
                 </p>
                 <div className="flex justify-end text-slate-500 text-xs pt-1">
                   <div className="flex gap-1">
-                    <div className="flex items-center">
+                    <div className="flex items-center gap-1">
                       <FaEye /> 23
                     </div>
                     <div>09:21</div>
@@ -395,7 +419,7 @@ export const Pract = () => {
             </div>
           </div>
 
-          {/* Message 3 - Alex with avatar */}
+          {/* Message 3 - Alex  */}
           <div className="w-full pt-2">
             <div className="flex items-end gap-1">
               <img
@@ -403,20 +427,20 @@ export const Pract = () => {
                 alt="Alex Hunt"
                 className="w-10 h-10 rounded-xl object-cover flex-shrink-0 border-2 border-rose-200"
               />
-              <div className="bg-slate-200 border border-slate-100 rounded-2xl rounded-tl-sm px-3 py-3 w-fit">
-                <p className="text-[13px] font-semibold text-violet-900 mb-2 tracking-wide">
+              <div className="design-chat  border border-slate-100 rounded-2xl rounded-tl-sm px-3 py-3 w-fit">
+                <p className="text-[13px] md:text-[10px] lg:text-[13px] font-semibold text-violet-900 mb-2 tracking-wide">
                   Alex Hunt
                 </p>
-                <p className="text-[13.5px] leading-snug text-slate-600">
+                <p className="text-[13.5px] md:text-[10.5px] lg:text-[13px] leading-snug message-area">
                   Our intern @jchurch has successfully completed his <br />
                   probability period and is now part of our team!
                 </p>
                 <div className="flex justify-between text-slate-500 text-xs pt-1">
                   <div className="flex items-center gap-1">
-                    <FaFire /> 4
+                    <FaFire /> <span className="text-black">4</span>
                   </div>
                   <div className="flex gap-1">
-                    <div className="flex items-center">
+                    <div className="flex items-center gap-1">
                       <FaEye /> 23
                     </div>
                     <div>09:22</div>
@@ -431,12 +455,12 @@ export const Pract = () => {
             <div className="flex items-end gap-1">
               <div className="bg-violet-500 border border-slate-100 rounded-2xl rounded-br-sm px-3 py-3 w-fit">
                 <p className="text-[13.5px] leading-snug text-white">
-                  Jaden, my congratulations! I will be glad to work with you on
-                  a new project
+                  Jaden, my congratulations! I will be glad to <br />
+                  work with you on a new project
                 </p>
                 <div className="flex justify-end text-white text-xs pt-1">
                   <div className="flex gap-1">
-                    <div className="flex items-center">
+                    <div className="flex items-center gap-1">
                       <FaEye /> 23
                     </div>
                     <div>09:23</div>
@@ -451,7 +475,7 @@ export const Pract = () => {
             </div>
           </div>
 
-          {/* Message 5 - Jasmin reply */}
+          {/* Message 5 - Jasmin*/}
           <div className="w-full pt-4">
             <div className="flex items-end gap-1">
               <img
@@ -459,19 +483,19 @@ export const Pract = () => {
                 alt="Jasmin Lowery"
                 className="w-10 h-10 rounded-xl object-cover flex-shrink-0 border-2 border-rose-200"
               />
-              <div className="bg-slate-200 border border-slate-100 rounded-2xl rounded-tl-sm px-3 py-3 w-fit">
-                <p className="text-[13px] font-semibold text-violet-900 mb-2 tracking-wide">
+              <div className="design-chat  border border-slate-100 rounded-2xl rounded-tl-sm px-3 py-3 w-fit">
+                <p className="text-[13px] md:text-[10px] lg:text-[13px]  font-semibold text-violet-900 mb-2 tracking-wide">
                   Jasmin Lowery
                 </p>
-                <p className="text-[13.5px] leading-snug text-slate-600">
-                  That's amazing news! Welcome to the team @jchurch 🎉
+                <p className="text-[13.5px] md:text-[10.5px] lg:text-[13px] leading-snug message-area">
+                  That's amazing news! Welcome to the team @jchurch
                 </p>
                 <div className="flex justify-between text-slate-500 text-xs pt-1">
                   <div className="flex items-center gap-1">
-                    <FaThumbsUp /> 6
+                    <FaThumbsUp /> <span className="text-black">6</span>
                   </div>
                   <div className="flex gap-1">
-                    <div className="flex items-center">
+                    <div className="flex items-center gap-1">
                       <FaEye /> 19
                     </div>
                     <div>09:25</div>
@@ -484,18 +508,18 @@ export const Pract = () => {
           {/* Message 6 - Jasmin continuation */}
           <div className="w-full pt-2 ps-12">
             <div className="flex items-end gap-1">
-              <div className="bg-slate-200 border border-slate-100 rounded-2xl rounded-tl-sm px-3 py-3 w-fit">
-                <p className="text-[13px] font-semibold text-violet-900 mb-2 tracking-wide">
+              <div className="design-chat  border border-slate-100 rounded-2xl rounded-tl-sm px-3 py-3 w-fit">
+                <p className="text-[13px] md:text-[10px] lg:text-[13px]  font-semibold text-violet-900 mb-2 tracking-wide">
                   Jasmin Lowery
                 </p>
-                <p className="text-[13.5px] leading-snug text-slate-600">
+                <p className="text-[13.5px] md:text-[10.5px] lg:text-[13px] leading-snug message-area">
                   Also, I updated the color tokens in the design file.
                   <br />
                   Please sync before starting new screens.
                 </p>
                 <div className="flex justify-end text-slate-500 text-xs pt-1">
                   <div className="flex gap-1">
-                    <div className="flex items-center">
+                    <div className="flex items-center gap-1">
                       <FaEye /> 17
                     </div>
                     <div>09:26</div>
@@ -513,21 +537,21 @@ export const Pract = () => {
                 alt="Alex Hunt"
                 className="w-10 h-10 rounded-xl object-cover flex-shrink-0 border-2 border-rose-200"
               />
-              <div className="bg-slate-200 border border-slate-100 rounded-2xl rounded-tl-sm px-3 py-3 w-fit">
-                <p className="text-[13px] font-semibold text-violet-900 mb-2 tracking-wide">
+              <div className="design-chat  border border-slate-100 rounded-2xl rounded-tl-sm px-3 py-3 w-fit">
+                <p className="text-[13px] md:text-[10px] lg:text-[13px] font-semibold text-violet-900 mb-2 tracking-wide">
                   Alex Hunt
                 </p>
-                <p className="text-[13.5px] leading-snug text-slate-600">
+                <p className="text-[13.5px] md:text-[10.5px] lg:text-[13px] leading-snug message-area">
                   Can everyone review the prototype by EOD?
                   <br />
                   We have a client call tomorrow at 10am.
                 </p>
                 <div className="flex justify-between text-slate-500 text-xs pt-1">
                   <div className="flex items-center gap-1">
-                    <FaFire /> 2
+                    <FaFire /> <span className="text-black">2</span>
                   </div>
                   <div className="flex gap-1">
-                    <div className="flex items-center">
+                    <div className="flex items-center gap-1">
                       <FaEye /> 21
                     </div>
                     <div>09:30</div>
@@ -541,12 +565,12 @@ export const Pract = () => {
           <div className="w-full pt-4 flex justify-end">
             <div className="flex items-end gap-1">
               <div className="bg-violet-500 border border-slate-100 rounded-2xl rounded-br-sm px-3 py-3 w-fit">
-                <p className="text-[13.5px] leading-snug text-white">
+                <p className="text-[13.5px] md:text-[10.5px] lg:text-[13px] leading-snug text-white">
                   Sure! I'll check it and leave comments before 5pm.
                 </p>
                 <div className="flex justify-end text-white text-xs pt-1">
                   <div className="flex gap-1">
-                    <div className="flex items-center">
+                    <div className="flex items-center gap-1">
                       <FaEye /> 18
                     </div>
                     <div>09:32</div>
@@ -569,21 +593,21 @@ export const Pract = () => {
                 alt="Jasmin Lowery"
                 className="w-10 h-10 rounded-xl object-cover flex-shrink-0 border-2 border-rose-200"
               />
-              <div className="bg-slate-200 border border-slate-100 rounded-2xl rounded-tl-sm px-3 py-3 w-fit">
-                <p className="text-[13px] font-semibold text-violet-900 mb-2 tracking-wide">
+              <div className="design-chat  border border-slate-100 rounded-2xl rounded-tl-sm px-3 py-3 w-fit">
+                <p className="text-[13px] md:text-[10px] lg:text-[13px]  font-semibold text-violet-900 mb-2 tracking-wide">
                   Jasmin Lowery
                 </p>
-                <p className="text-[13.5px] leading-snug text-slate-600">
+                <p className="text-[13.5px] md:text-[10.5px] lg:text-[13px] leading-snug message-area">
                   I shared the Figma link in the thread below.
                   <br />
                   Make sure you have edit access!
                 </p>
                 <div className="flex justify-between text-slate-500 text-xs pt-1">
                   <div className="flex items-center gap-1">
-                    <FaThumbsUp /> 3
+                    <FaThumbsUp /> <span className="text-black">3</span>
                   </div>
                   <div className="flex gap-1">
-                    <div className="flex items-center">
+                    <div className="flex items-center gap-1">
                       <FaEye /> 20
                     </div>
                     <div>09:35</div>
@@ -596,16 +620,16 @@ export const Pract = () => {
           {/* Message 10 - Alex continuation */}
           <div className="w-full pt-2 ps-12">
             <div className="flex items-end gap-1">
-              <div className="bg-slate-200 border border-slate-100 rounded-2xl rounded-tl-sm px-3 py-3 w-fit">
-                <p className="text-[13px] font-semibold text-violet-900 mb-2 tracking-wide">
+              <div className="design-chat  border border-slate-100 rounded-2xl rounded-tl-sm px-3 py-3 w-fit">
+                <p className="text-[13px] md:text-[10px] lg:text-[13px]  font-semibold text-violet-900 mb-2 tracking-wide">
                   Alex Hunt
                 </p>
-                <p className="text-[13.5px] leading-snug text-slate-600">
-                  Thanks Jasmin. @everyone please drop a ✅ once reviewed.
+                <p className="text-[13.5px] md:text-[10.5px] lg:text-[13px] leading-snug message-area">
+                  Thanks Jasmin. @everyone please drop a once reviewed.
                 </p>
                 <div className="flex justify-end text-slate-500 text-xs pt-1">
                   <div className="flex gap-1">
-                    <div className="flex items-center">
+                    <div className="flex items-center gap-1">
                       <FaEye /> 22
                     </div>
                     <div>09:36</div>
@@ -619,12 +643,12 @@ export const Pract = () => {
           <div className="w-full pt-4 flex justify-end">
             <div className="flex items-end gap-1">
               <div className="bg-violet-500 border border-slate-100 rounded-2xl rounded-br-sm px-3 py-3 w-fit">
-                <p className="text-[13.5px] leading-snug text-white">
-                  ✅ Done! Left a few comments on the onboarding flow.
+                <p className="text-[13.5px] md:text-[10.5px] lg:text-[13px] leading-snug text-white">
+                  Done! Left a few comments on the onboarding flow.
                 </p>
                 <div className="flex justify-end text-white text-xs pt-1">
                   <div className="flex gap-1">
-                    <div className="flex items-center">
+                    <div className="flex items-center gap-1">
                       <FaEye /> 15
                     </div>
                     <div>09:50</div>
@@ -647,21 +671,21 @@ export const Pract = () => {
                 alt="Jasmin Lowery"
                 className="w-10 h-10 rounded-xl object-cover flex-shrink-0 border-2 border-rose-200"
               />
-              <div className="bg-slate-200 border border-slate-100 rounded-2xl rounded-tl-sm px-3 py-3 w-fit">
-                <p className="text-[13px] font-semibold text-violet-900 mb-2 tracking-wide">
+              <div className="design-chat  border border-slate-100 rounded-2xl rounded-tl-sm px-3 py-3 w-fit">
+                <p className="text-[13px] md:text-[10px] lg:text-[13px]  font-semibold text-violet-900 mb-2 tracking-wide">
                   Jasmin Lowery
                 </p>
-                <p className="text-[13.5px] leading-snug text-slate-600">
+                <p className="text-[13.5px] md:text-[10.5px] lg:text-[13px] leading-snug message-area">
                   Great feedback! I'll address them tonight.
                   <br />
                   The new component library is almost ready too.
                 </p>
                 <div className="flex justify-between text-slate-500 text-xs pt-1">
                   <div className="flex items-center gap-1">
-                    <FaThumbsUp /> 5
+                    <FaThumbsUp /> <span className="text-black">5</span>
                   </div>
                   <div className="flex gap-1">
-                    <div className="flex items-center">
+                    <div className="flex items-center gap-1">
                       <FaEye /> 16
                     </div>
                     <div>09:55</div>
@@ -679,16 +703,16 @@ export const Pract = () => {
                 alt="Alex Hunt"
                 className="w-10 h-10 rounded-xl object-cover flex-shrink-0 border-2 border-rose-200"
               />
-              <div className="bg-slate-200 border border-slate-100 rounded-2xl rounded-tl-sm px-3 py-3 w-fit">
-                <p className="text-[13px] font-semibold text-violet-900 mb-2 tracking-wide">
+              <div className="design-chat  border border-slate-100 rounded-2xl rounded-tl-sm px-3 py-3 w-fit">
+                <p className="text-[13px] md:text-[10px] lg:text-[13px] font-semibold text-violet-900 mb-2 tracking-wide">
                   Alex Hunt
                 </p>
-                <p className="text-[13.5px] leading-snug text-slate-600">
+                <p className="text-[13.5px] md:text-[10.5px] lg:text-[13px] leading-snug message-area">
                   Perfect. Let's sync at 9am tomorrow before the call.
                 </p>
                 <div className="flex justify-end text-slate-500 text-xs pt-1">
                   <div className="flex gap-1">
-                    <div className="flex items-center">
+                    <div className="flex items-center gap-1">
                       <FaEye /> 20
                     </div>
                     <div>10:00</div>
@@ -702,12 +726,12 @@ export const Pract = () => {
           <div className="w-full pt-4 pb-2 flex justify-end">
             <div className="flex items-end gap-1">
               <div className="bg-violet-500 border border-slate-100 rounded-2xl rounded-br-sm px-3 py-3 w-fit">
-                <p className="text-[13.5px] leading-snug text-white">
-                  Sounds good. See you all at 9! 👍
+                <p className="text-[13.5px] md:text-[10.5px] lg:text-[13px]leading-snug text-white">
+                  Sounds good. See you all at 9!
                 </p>
                 <div className="flex justify-end text-white text-xs pt-1">
                   <div className="flex gap-1">
-                    <div className="flex items-center">
+                    <div className="flex items-center gap-1">
                       <FaEye /> 12
                     </div>
                     <div>10:02</div>
@@ -744,12 +768,12 @@ export const Pract = () => {
         </div>
       </div>
 
-      {/* Column 4 - Group Info Panel (hidden on sm & md, visible on lg+) */}
-      <div className="hidden lg:block space-y-2 w-72 bg-black overflow-y-auto no-scrollbar px-2 py-2">
+      {/* Column 4 - Group Info Panel*/}
+      <div className="hidden lg:block space-y-2 w-70 bg-black overflow-y-auto no-scrollbar px-2 py-2 ">
         {/* Group Info Section */}
-        <div className="bg-white border border-gray-200 rounded-3xl px-1">
+        <div className="bg-white border border-gray-200 rounded-3xl px-1 pb-2">
           <div className="flex justify-between items-center mb-4 pt-4">
-            <span className="text-base font-bold text-gray-900 pl-3">
+            <span className="text-xl font-bold text-gray-900 pl-3">
               Group Info
             </span>
             <button className="text-gray-500 hover:text-gray-800 text-sm pr-2">
@@ -757,9 +781,9 @@ export const Pract = () => {
             </button>
           </div>
 
-          <p className="text-xs font-semibold text-gray-800 mb-2 px-4">Files</p>
+          <p className="text-sm font-bold text-gray-800 mb-2 px-4">Files</p>
 
-          <div className="flex justify-between items-center mb-2 px-4">
+          <div className="flex justify-between items-center mb-2 px-6">
             <div className="flex items-center gap-2">
               <ImageIcon className="w-4 h-4 text-black" />
               <span className="text-sm text-black">265 photos</span>
@@ -768,10 +792,10 @@ export const Pract = () => {
           </div>
 
           <div className="flex flex-nowrap gap-2 mb-3 overflow-x-auto no-scrollbar px-4">
-            <img src={Nat1} className="w-24 h-16 rounded-lg object-cover" />
-            <img src={Nat2} className="w-24 h-16 rounded-lg object-cover" />
-            <img src={Nat3} className="w-24 h-16 rounded-lg object-cover" />
-            <img src={Nat4} className="w-24 h-16 rounded-lg object-cover" />
+            <img src={Nat1} className="w-28 h-20 rounded-lg object-cover" />
+            <img src={Nat2} className="w-28 h-20 rounded-lg object-cover" />
+            <img src={Nat3} className="w-28 h-20 rounded-lg object-cover" />
+            <img src={Nat4} className="w-28 h-20 rounded-lg object-cover" />
           </div>
 
           {[
@@ -779,13 +803,13 @@ export const Pract = () => {
             { icon: <FileIcon size={19} />, label: "378 files" },
             { icon: <MusicIcon size={19} />, label: "21 audio files" },
             { icon: <LinkIcon size={19} />, label: "45 shared links" },
-            { icon: <MicIcon size={19} />, label: "2589 voice messages" },
+            { icon: <MicIcon size={19} />, label: "2589 voice message" },
           ].map(({ icon, label }) => (
             <div
               key={label}
-              className="flex justify-between items-center py-2.5 border-t border-gray-100 px-4"
+              className="flex justify-between items-center py-2.5 border-t border-gray-100 px-6"
             >
-              <div className="flex items-center gap-4">
+              <div className="flex items-center gap-4 ">
                 <span className="text-black w-4 h-4">{icon}</span>
                 <span className="text-sm text-black">{label}</span>
               </div>
@@ -803,12 +827,12 @@ export const Pract = () => {
             </button>
           </div>
 
-          <div className="flex flex-col gap-3">
+          <div className="flex flex-col gap-3 ">
             {members.map((m) => (
               <div key={m.name} className="flex items-center gap-2.5">
                 <img
                   src={m.avatar}
-                  className="w-11 h-13 rounded-xl object-cover"
+                  className="w-11 h-13 rounded-xl object-cover p-1"
                 />
                 <span className="text-sm font-bold text-gray-900 flex-1">
                   {m.name}
