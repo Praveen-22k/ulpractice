@@ -6,7 +6,5 @@ import { Pract } from "./pract.jsx";
 // main.jsx
 
 createRoot(document.getElementById("root")).render(
-  <StrictMode>
-    <Pract />
-  </StrictMode>,
+  <StrictMode>{/* <Pract /> */}</StrictMode>,
 );
