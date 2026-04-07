@@ -34,6 +34,7 @@ import Nat1 from "./assets/nat1.jpg";
 import Nat2 from "./assets/nat2.jpg";
 import Nat3 from "./assets/nat3.jpg";
 import Nat4 from "./assets/nat4.jpg";
+import logo from "./assets/logo.png";
 import "./pract.css";
 
 export const Pract = () => {
@@ -176,22 +177,27 @@ export const Pract = () => {
       >
         <div className="flex flex-col h-full px-2 py-4   md:pt-1 lg:pt-0">
           {/* Top - Logo */}
-          <div className="flex justify-center pb-4 md:pb-2 lg:pb-4">
-            <GiMoebiusTriangle className="text-white size-4 md:size-5 lg:size-8 mt-0 md:mt-2 lg:mt-8" />
+          <div className="flex justify-center pb-4 md:pb-2 lg:pb-0 pt-3">
+            <img
+              src={logo}
+              alt="logo"
+              className="size-9 md:size-12 lg:size-10 mt-0 md:mt-2 lg:mt-5 object-contain"
+            />
           </div>
 
           {/* Middle - Nav Items */}
-          <div className="flex-1 flex flex-col justify-center gap-0 md:gap-0 lg:gap-1">
-            <div className="flex flex-col items-center gap-1 cursor-pointer hover:bg-gray-700 hover:text-white transition-all duration-200 rounded-xl w-full py-0.5 md:py-0.5 lg:py-1 px-1">
+          <div className="flex-1 flex flex-col justify-center gap-0 md:gap-0 lg:gap-3">
+            <div className="flex flex-col items-center gap-1 cursor-pointer hover:bg-gray-700 hover:text-white hover:py-3 transition-all duration-200 rounded-xl w-full py-0.5 md:py-0.5 lg:py-1.5 px-1">
               {/* Icon wrapper with badge */}
               <div className="relative">
-                <IoChatboxSharp className="size-4 md:size-5 lg:size-7" />
+                <IoChatboxSharp className="size-4 md:size-5 lg:size-6" />
                 {/* Notification badge */}
                 <span
-                  className="absolute -top-1 -right-1 bg-red-500 text-white rounded-full flex items-center justify-center leading-none 
+                  className="absolute -top-1 -right-1  text-white rounded-full flex items-center justify-center leading-none 
   text-[7px] w-3 h-3 
   md:text-[7px] md:w-4 md:h-4 
-  lg:text-[10px] lg:w-5 lg:h-5"
+  lg:text-[9px] lg:w-4 lg:h-4"
+                  style={{ background: "#fa7a50" }}
                 >
                   43
                 </span>
@@ -201,16 +207,17 @@ export const Pract = () => {
               </div>
             </div>
 
-            <div className="flex flex-col items-center gap-1 cursor-pointer hover:bg-gray-700 hover:text-white transition-all duration-200 rounded-xl w-full py-0.5 md:py-0.5 lg:py-1 px-1">
+            <div className="flex flex-col items-center gap-1 cursor-pointer hover:bg-gray-700 hover:text-white hover:py-3 transition-all duration-200 rounded-xl w-full py-0.5 md:py-0.5 lg:py-1 px-1">
               {/* Icon wrapper with badge */}
               <div className="relative">
-                <FaFolder className="size-4 md:size-5 lg:size-7" />
+                <FaFolder className="size-4 md:size-5 lg:size-6" />
                 {/* Notification badge */}
                 <span
-                  className="absolute -top-1 -right-1 bg-red-500 text-white rounded-full flex items-center justify-center leading-none 
+                  className="absolute -top-1 -right-1  text-white rounded-full flex items-center justify-center leading-none 
   text-[7px] w-3 h-3 
   md:text-[7px] md:w-4 md:h-4 
-  lg:text-[10px] lg:w-5 lg:h-5"
+  lg:text-[9px] lg:w-4 lg:h-4"
+                  style={{ background: "#fa7a50" }}
                 >
                   4
                 </span>
@@ -220,38 +227,38 @@ export const Pract = () => {
               </div>
             </div>
 
-            <div className="flex flex-col items-center gap-1 cursor-pointer hover:bg-gray-700 hover:text-white transition-all duration-200 rounded-xl w-full py-0.5 md:py-0.5 lg:py-1 px-1">
-              <FaFolder className="size-4 md:size-5 lg:size-7" />
+            <div className="flex flex-col items-center gap-1 cursor-pointer hover:bg-gray-700 hover:text-white hover:py-3 transition-all duration-200 rounded-xl w-full py-0.5 md:py-0.5 lg:py-1 px-1">
+              <FaFolder className="size-4 md:size-5 lg:size-6" />
               <div className="text-[10px] md:text-[9px] lg:text-[12px] text-center ">
                 Friends
               </div>
             </div>
 
-            <div className="flex flex-col items-center gap-1 cursor-pointer hover:bg-gray-700 hover:text-white transition-all duration-200 rounded-xl w-full py-0.5 md:py-0.5 lg:py-1 px-1">
-              <FaFolder className="size-4 md:size-5 lg:size-7" />
+            <div className="flex flex-col items-center gap-1 cursor-pointer hover:bg-gray-700 hover:text-white hover:py-3 transition-all duration-200 rounded-xl w-full py-0.5 md:py-0.5 lg:py-1 px-1">
+              <FaFolder className="size-4 md:size-5 lg:size-6" />
               <div className="text-[10px] md:text-[9px] lg:text-[12px] text-center ">
                 News
               </div>
             </div>
 
-            <div className="flex flex-col items-center gap-1 cursor-pointer hover:bg-gray-700 hover:text-white transition-all duration-200 rounded-xl w-full py-0.5 md:py-0.5 lg:py-1 px-1">
-              <FaArchive className="size-4 md:size-5 lg:size-7" />
+            <div className="flex flex-col items-center gap-1 cursor-pointer hover:bg-gray-700 hover:text-white hover:py-3 transition-all duration-200 rounded-xl w-full py-0.5 md:py-0.5 lg:py-1 px-1">
+              <FaArchive className="size-4 md:size-5 lg:size-6" />
               <div className="text-[10px] md:text-[9px] lg:text-[12px] text-center ">
                 Archive chats
               </div>
             </div>
 
-            <hr className="border-gray-700 my-1" />
+            <hr className="border-gray-700 my-1 mx-2" />
 
-            <div className="flex flex-col items-center gap-1 cursor-pointer hover:bg-gray-700 hover:text-white transition-all duration-200 rounded-xl w-full py-0.5 md:py-0.5 lg:py-1 px-1">
-              <FaUserAlt className="size-4 md:size-5 lg:size-7" />
+            <div className="flex flex-col items-center gap-1 cursor-pointer hover:bg-gray-700 hover:text-white hover:py-3 transition-all duration-200 rounded-xl w-full py-0.5 md:py-0.5 lg:py-1 px-1">
+              <FaUserAlt className="size-4 md:size-5 lg:size-6" />
               <div className="text-[10px] md:text-[9px] lg:text-[12px] text-center ">
                 Profile
               </div>
             </div>
 
-            <div className="flex flex-col items-center gap-1 cursor-pointer hover:bg-gray-700 hover:text-white transition-all duration-200 rounded-xl w-full py-0.5 md:py-0.5 lg:py-1 px-1">
-              <MdModeEdit className="size-4 md:size-5 lg:size-7" />
+            <div className="flex flex-col items-center gap-1 cursor-pointer hover:bg-gray-700 hover:text-white hover:py-3 transition-all duration-200 rounded-xl w-full py-0.5 md:py-0.5 lg:py-1 px-1">
+              <MdModeEdit className="size-4 md:size-5 lg:size-6" />
               <div className="text-[10px]  md:text-[9px] lg:text-[12px] text-center ">
                 Edit
               </div>
@@ -259,8 +266,8 @@ export const Pract = () => {
           </div>
 
           {/* Bottom - Logout */}
-          <div className="flex flex-col items-center gap-1 cursor-pointer hover:bg-gray-700 hover:text-white transition-all duration-200 rounded-xl w-full py-0.5 md:py-0.5 lg:py-1 px-1">
-            <TbLogout2 className="size-4 md:size-5 lg:size-7" />
+          <div className="flex flex-col items-center gap-1 cursor-pointer hover:bg-gray-700 hover:text-white hover:py-3 transition-all duration-200 rounded-xl w-full py-0.5 md:py-0.5 lg:py-1 px-1">
+            <TbLogout2 className="size-4 md:size-5 lg:size-6" />
             <div className="text-[10px]  md:text-[9px] lg:text-[12px] text-center ">
               Logout
             </div>
@@ -282,12 +289,12 @@ export const Pract = () => {
               <BsThreeDotsVertical size={18} />
             </button>
 
-            <div className="flex items-center gap-2 bg-gray-300 rounded-xl  px-4 py-2 w-full ">
-              <FiSearch size={16} className="text-gray-700 shrink-0" />
+            <div className="flex items-center gap-2 bg-gray-200 rounded-xl  px-3 py-2 w-full ">
+              <FiSearch size={23} className="text-gray-700 shrink-0" />
               <input
                 type="text"
                 placeholder="Search"
-                className="bg-transparent outline-none text-sm text-gray-900 w-full placeholder-gray-700"
+                className="bg-transparent outline-none text-xs text-gray-900 w-full placeholder-gray-700"
               />
             </div>
           </div>
@@ -345,7 +352,7 @@ export const Pract = () => {
       </div>
 
       {/* Column 3 - Main Chat (hidden on sm, visible on md+) */}
-      <div className="hidden md:flex flex-[2] lg:flex-[3]  min-w-0 bg-gray-50 my-2 mr-1 rounded-r-3xl flex-col">
+      <div className="hidden flex-[2] md:flex  lg:flex-[2]  min-w-0 bg-gray-50 my-2 mr-1 rounded-r-3xl flex-col">
         {/* Header */}
         <div className="flex justify-between pt-4 ps-3 bg-gray-50 rounded-tr-3xl lg:rounded-tr-3xl sticky top-0 z-10">
           <div>
@@ -356,7 +363,7 @@ export const Pract = () => {
               23 members, 10 online
             </div>
           </div>
-          <div className="flex gap-5 text-gray-400 pt-3 pr-3 ">
+          <div className="flex gap-6 text-gray-400 pt-3 pr-3 ">
             <FiSearch className="size-1 md:size-5 lg:size-7" />
             <FiPhone className="size-1 md:size-5 lg:size-7" />
             <BsThreeDotsVertical className="size-1 md:size-5 lg:size-7" />
@@ -751,7 +758,7 @@ export const Pract = () => {
         <div className="sticky bottom-0 z-10 bg-gray-50 rounded-br-3xl p-4">
           <div className="flex items-center gap-3 bg-gray-100 rounded-xl px-4 py-3 shadow-sm">
             <button className="text-gray-400 hover:text-gray-600 transition-colors flex-shrink-0">
-              <GrAttachment size={18} />
+              <GrAttachment size={20} className="text-black/60" />
             </button>
             <input
               type="text"
@@ -759,10 +766,10 @@ export const Pract = () => {
               className="flex-1 bg-transparent text-sm text-gray-500 placeholder-gray-400 outline-none"
             />
             <button className="text-gray-400 hover:text-gray-600 transition-colors flex-shrink-0">
-              <BsMicFill size={18} />
+              <MicIcon size={18} className="text-black/60" />
             </button>
             <button className="text-gray-400 hover:text-blue-500 transition-colors flex-shrink-0">
-              <IoSend size={18} />
+              <IoSend size={18} className="text-black/60" />
             </button>
           </div>
         </div>
@@ -781,14 +788,16 @@ export const Pract = () => {
             </button>
           </div>
 
-          <p className="text-sm font-bold text-gray-800 mb-2 px-4">Files</p>
+          <p className="text-sm font-bold text-gray-800 mb-2 py-3 px-5">
+            Files
+          </p>
 
-          <div className="flex justify-between items-center mb-2 px-6">
+          <div className="flex justify-between items-center mb-5 px-4">
             <div className="flex items-center gap-2">
-              <ImageIcon className="w-4 h-4 text-black" />
+              <ImageIcon className="w-5 h-5 text-black" />
               <span className="text-sm text-black">265 photos</span>
             </div>
-            <ChevronUp className="w-4 h-4 text-black" />
+            <ChevronUp className="w-5 h-5 text-black" />
           </div>
 
           <div className="flex flex-nowrap gap-2 mb-3 overflow-x-auto no-scrollbar px-4">
@@ -803,24 +812,26 @@ export const Pract = () => {
             { icon: <FileIcon size={19} />, label: "378 files" },
             { icon: <MusicIcon size={19} />, label: "21 audio files" },
             { icon: <LinkIcon size={19} />, label: "45 shared links" },
-            { icon: <MicIcon size={19} />, label: "2589 voice message" },
+            { icon: <MicIcon size={19} />, label: "2 589 voice message" },
           ].map(({ icon, label }) => (
             <div
               key={label}
-              className="flex justify-between items-center py-2.5 border-t border-gray-100 px-6"
+              className="flex justify-between items-center py-2.5 border-t border-gray-100 px-4 pb-4"
             >
               <div className="flex items-center gap-4 ">
                 <span className="text-black w-4 h-4">{icon}</span>
                 <span className="text-sm text-black">{label}</span>
               </div>
-              <ChevronDown className="w-4 h-4 text-black" />
+              {label !== "2 589 voice message" && (
+                <ChevronDown className="w-6 h-5 text-black" />
+              )}
             </div>
           ))}
         </div>
 
         {/* Members Section */}
         <div className=" p-5 border border-gray-200 rounded-3xl memberSection">
-          <div className="flex justify-between items-center mb-4">
+          <div className="flex justify-between items-center mb-4 mr-3">
             <span className="text-lg font-bold text-gray-900">23 members</span>
             <button className="text-gray-500 hover:text-gray-700 text-sm">
               ✕
@@ -829,12 +840,12 @@ export const Pract = () => {
 
           <div className="flex flex-col gap-3 ">
             {members.map((m) => (
-              <div key={m.name} className="flex items-center gap-2.5">
+              <div key={m.name} className="flex items-center gap-2.5 px-2">
                 <img
                   src={m.avatar}
                   className="w-11 h-13 rounded-xl object-cover p-1"
                 />
-                <span className="text-sm font-bold text-gray-900 flex-1">
+                <span className="text-xs font-bold text-gray-900 flex-1">
                   {m.name}
                 </span>
                 {m.isAdmin && (
