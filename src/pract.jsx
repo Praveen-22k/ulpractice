@@ -776,7 +776,7 @@ export const Pract = () => {
             <span className="text-xl font-bold text-gray-900 pl-3">
               Group Info
             </span>
-            <button className="text-gray-500 hover:text-gray-800 text-sm pr-2">
+            <button className="text-gray-500 hover:text-gray-800 text-sm pr-6">
               ✕
             </button>
           </div>
@@ -821,7 +821,7 @@ export const Pract = () => {
         {/* Members Section */}
         <div className=" p-5 border border-gray-200 rounded-3xl memberSection">
           <div className="flex justify-between items-center mb-4">
-            <span className="text-xl font-bold text-gray-900">23 members</span>
+            <span className="text-lg font-bold text-gray-900">23 members</span>
             <button className="text-gray-500 hover:text-gray-700 text-sm">
               ✕
             </button>
