@@ -175,19 +175,19 @@ export const Pract = () => {
           sm:translate-x-0
         `}
       >
-        <div className="flex flex-col h-full px-2 py-4   md:pt-1 lg:pt-0">
+        <div className="flex flex-col h-full px-2 py-0   md:pt-1 lg:pt-0">
           {/* Top - Logo */}
-          <div className="flex justify-center pb-4 md:pb-2 lg:pb-0 pt-3">
+          <div className="flex justify-center pb-1 md:pb-2 lg:pb-0 pt-3">
             <img
               src={logo}
               alt="logo"
-              className="size-9 md:size-12 lg:size-10 mt-0 md:mt-2 lg:mt-5 object-contain"
+              className="size-7 md:size-12 lg:size-10 mt-0 md:mt-2 lg:mt-5 object-contain"
             />
           </div>
 
           {/* Middle - Nav Items */}
-          <div className="flex-1 flex flex-col justify-center gap-0 md:gap-0 lg:gap-3">
-            <div className="flex flex-col items-center gap-1 cursor-pointer hover:bg-gray-700 hover:text-white hover:py-3 transition-all duration-200 rounded-xl w-full py-0.5 md:py-0.5 lg:py-1.5 px-1">
+          <div className="flex-1 flex flex-col justify-center gap-0 md:gap-0 lg:gap-4">
+            <div className="flex flex-col items-center justify-center gap-1 cursor-pointer hover:bg-gray-700 hover:text-white transition-all duration-200 rounded-xl w-full min-h-[48px] px-1 py-1 md:py-2 lg:py-2">
               {/* Icon wrapper with badge */}
               <div className="relative">
                 <IoChatboxSharp className="size-4 md:size-5 lg:size-6" />
@@ -202,12 +202,12 @@ export const Pract = () => {
                   43
                 </span>
               </div>
-              <div className="text-[10px] md:text-[9px] text-center lg:text-[12px]">
+              <div className="text-[8px] md:text-[9px] text-center lg:text-[12px]">
                 All chats
               </div>
             </div>
 
-            <div className="flex flex-col items-center gap-1 cursor-pointer hover:bg-gray-700 hover:text-white hover:py-3 transition-all duration-200 rounded-xl w-full py-0.5 md:py-0.5 lg:py-1 px-1">
+            <div className="flex flex-col items-center justify-center gap-1 cursor-pointer hover:bg-gray-700 hover:text-white transition-all duration-200 rounded-xl w-full min-h-[48px] px-1 py-1 md:py-2 lg:py-2">
               {/* Icon wrapper with badge */}
               <div className="relative">
                 <FaFolder className="size-4 md:size-5 lg:size-6" />
@@ -222,53 +222,53 @@ export const Pract = () => {
                   4
                 </span>
               </div>
-              <div className="text-[10px] md:text-[9px] text-center lg:text-[12px]">
+              <div className="text-[8px] md:text-[9px] text-center lg:text-[12px]">
                 work
               </div>
             </div>
 
-            <div className="flex flex-col items-center gap-1 cursor-pointer hover:bg-gray-700 hover:text-white hover:py-3 transition-all duration-200 rounded-xl w-full py-0.5 md:py-0.5 lg:py-1 px-1">
+            <div className="flex flex-col items-center justify-center gap-1 cursor-pointer hover:bg-gray-700 hover:text-white transition-all duration-200 rounded-xl w-full min-h-[48px] px-1 py-1 md:py-2 lg:py-2">
               <FaFolder className="size-4 md:size-5 lg:size-6" />
-              <div className="text-[10px] md:text-[9px] lg:text-[12px] text-center ">
+              <div className="text-[8px] md:text-[9px] lg:text-[12px] text-center ">
                 Friends
               </div>
             </div>
 
-            <div className="flex flex-col items-center gap-1 cursor-pointer hover:bg-gray-700 hover:text-white hover:py-3 transition-all duration-200 rounded-xl w-full py-0.5 md:py-0.5 lg:py-1 px-1">
+            <div className="flex flex-col items-center justify-center gap-1 cursor-pointer hover:bg-gray-700 hover:text-white transition-all duration-200 rounded-xl w-full min-h-[48px] px-1 py-1 md:py-2 lg:py-2">
               <FaFolder className="size-4 md:size-5 lg:size-6" />
-              <div className="text-[10px] md:text-[9px] lg:text-[12px] text-center ">
+              <div className="text-[8px] md:text-[9px] lg:text-[12px] text-center ">
                 News
               </div>
             </div>
 
-            <div className="flex flex-col items-center gap-1 cursor-pointer hover:bg-gray-700 hover:text-white hover:py-3 transition-all duration-200 rounded-xl w-full py-0.5 md:py-0.5 lg:py-1 px-1">
+            <div className="flex flex-col items-center justify-center gap-1 cursor-pointer hover:bg-gray-700 hover:text-white transition-all duration-200 rounded-xl w-full min-h-[48px] px-1 py-1 md:py-2 lg:py-2">
               <FaArchive className="size-4 md:size-5 lg:size-6" />
-              <div className="text-[10px] md:text-[9px] lg:text-[12px] text-center ">
+              <div className="text-[8px] md:text-[9px] lg:text-[12px] text-center ">
                 Archive chats
               </div>
             </div>
 
-            <hr className="border-gray-700 my-1 mx-2" />
+            <hr className="border-gray-700 my-1 mx-3" />
 
-            <div className="flex flex-col items-center gap-1 cursor-pointer hover:bg-gray-700 hover:text-white hover:py-3 transition-all duration-200 rounded-xl w-full py-0.5 md:py-0.5 lg:py-1 px-1">
+            <div className="flex flex-col items-center justify-center gap-1 cursor-pointer hover:bg-gray-700 hover:text-white transition-all duration-200 rounded-xl w-full min-h-[48px] px-1 py-1 md:py-2 lg:py-2">
               <FaUserAlt className="size-4 md:size-5 lg:size-6" />
-              <div className="text-[10px] md:text-[9px] lg:text-[12px] text-center ">
+              <div className="text-[8px] md:text-[9px] lg:text-[12px] text-center ">
                 Profile
               </div>
             </div>
 
-            <div className="flex flex-col items-center gap-1 cursor-pointer hover:bg-gray-700 hover:text-white hover:py-3 transition-all duration-200 rounded-xl w-full py-0.5 md:py-0.5 lg:py-1 px-1">
+            <div className="flex flex-col items-center justify-center gap-1 cursor-pointer hover:bg-gray-700 hover:text-white transition-all duration-200 rounded-xl w-full min-h-[48px] px-1 py-1 md:py-2 lg:py-2">
               <MdModeEdit className="size-4 md:size-5 lg:size-6" />
-              <div className="text-[10px]  md:text-[9px] lg:text-[12px] text-center ">
+              <div className="text-[8px]  md:text-[9px] lg:text-[12px] text-center ">
                 Edit
               </div>
             </div>
           </div>
 
           {/* Bottom - Logout */}
-          <div className="flex flex-col items-center gap-1 cursor-pointer hover:bg-gray-700 hover:text-white hover:py-3 transition-all duration-200 rounded-xl w-full py-0.5 md:py-0.5 lg:py-1 px-1">
+          <div className="flex flex-col items-center justify-center gap-1 cursor-pointer hover:bg-gray-700 hover:text-white transition-all duration-200 rounded-xl w-full min-h-[48px] px-1 py-1 md:py-2 lg:py-2">
             <TbLogout2 className="size-4 md:size-5 lg:size-6" />
-            <div className="text-[10px]  md:text-[9px] lg:text-[12px] text-center ">
+            <div className="text-[8px]  md:text-[9px] lg:text-[12px] text-center ">
               Logout
             </div>
           </div>
@@ -276,7 +276,7 @@ export const Pract = () => {
       </div>
 
       {/*Column 2 — Chat List*/}
-      <div className="w-full md:w-60 lg:w-52 xl:w-72 flex-shrink-0 bg-white my-0 md:my-2  rounded-none md:rounded-l-3xl md:rounded-r-none overflow-y-auto no-scrollbar">
+      <div className="w-full md:w-60 lg:w-57 xl:w-80 flex-shrink-0 bg-white my-0 md:my-2  rounded-none md:rounded-l-3xl md:rounded-r-none overflow-y-auto no-scrollbar">
         {/* Search Bar */}
         <div className="sticky top-0 z-10 bg-white px-3 pt-3 pb-2">
           <div className="flex items-center gap-2">
@@ -317,7 +317,7 @@ export const Pract = () => {
               </div>
               {/* Info */}
               <div className="chat-info">
-                <p className="chat-name">{chat.name}</p>
+                <p className="chat-name ">{chat.name}</p>
                 <div
                   className={`chat-preview ${chat.isYou ? "preview-you" : ""}`}
                 >
@@ -384,7 +384,7 @@ export const Pract = () => {
                 <p className="text-[13px] md:text-[10px] lg:text-[13px]  font-semibold text-violet-900 mb-2 tracking-wide">
                   Jasmin Lowery
                 </p>
-                <p className="text-[13.5px] md:text-[10.5px] lg:text-[13px] leading-snug message-area">
+                <p className="text-[13.5px] md:text-[10.5px] lg:text-[14px] leading-snug message-area">
                   I added new flows to our design system.
                   <br />
                   Now you can use them for your projects!
@@ -411,7 +411,7 @@ export const Pract = () => {
                 <p className="text-[13px] md:text-[10px] lg:text-[13px]  font-semibold text-violet-900 mb-2 tracking-wide">
                   Alex Hunt
                 </p>
-                <p className="text-[13.5px] md:text-[10.5px] lg:text-[13px] leading-snug message-area">
+                <p className="text-[13.5px] md:text-[10.5px] lg:text-[14px] leading-snug message-area">
                   Hey Guys! Important News!
                 </p>
                 <div className="flex justify-end text-slate-500 text-xs pt-1">
@@ -438,9 +438,10 @@ export const Pract = () => {
                 <p className="text-[13px] md:text-[10px] lg:text-[13px] font-semibold text-violet-900 mb-2 tracking-wide">
                   Alex Hunt
                 </p>
-                <p className="text-[13.5px] md:text-[10.5px] lg:text-[13px] leading-snug message-area">
-                  Our intern @jchurch has successfully completed his <br />
-                  probability period and is now part of our team!
+                <p className="text-[13.5px] md:text-[10.5px] lg:text-[14px] leading-snug message-area">
+                  Our intern @jchurch has successfully
+                  <br /> completed his probability period and is now part of our
+                  team!
                 </p>
                 <div className="flex justify-between text-slate-500 text-xs pt-1">
                   <div className="flex items-center gap-1">
@@ -460,10 +461,13 @@ export const Pract = () => {
           {/* Message 4 - Own message */}
           <div className="w-full pt-4 flex justify-end">
             <div className="flex items-end gap-1">
-              <div className="bg-violet-500 border border-slate-100 rounded-2xl rounded-br-sm px-3 py-3 w-fit">
-                <p className="text-[13.5px] leading-snug text-white">
-                  Jaden, my congratulations! I will be glad to <br />
-                  work with you on a new project
+              <div
+                className="bg-violet-500 border border-slate-100 rounded-2xl rounded-br-sm px-3 py-3 
+               w-fit"
+              >
+                <p className="text-[13.5px] md:text-[10.5px] lg:text-[14px] leading-snug text-white">
+                  Jaden, my congratulations! I will be <br />
+                  glad to work with you on a new project
                 </p>
                 <div className="flex justify-end text-white text-xs pt-1">
                   <div className="flex gap-1">
@@ -491,7 +495,7 @@ export const Pract = () => {
                 className="w-10 h-10 rounded-xl object-cover flex-shrink-0 border-2 border-rose-200"
               />
               <div className="design-chat  border border-slate-100 rounded-2xl rounded-tl-sm px-3 py-3 w-fit">
-                <p className="text-[13px] md:text-[10px] lg:text-[13px]  font-semibold text-violet-900 mb-2 tracking-wide">
+                <p className="text-[13px] md:text-[10px] lg:text-[14px]  font-semibold text-violet-900 mb-2 tracking-wide">
                   Jasmin Lowery
                 </p>
                 <p className="text-[13.5px] md:text-[10.5px] lg:text-[13px] leading-snug message-area">
@@ -519,7 +523,7 @@ export const Pract = () => {
                 <p className="text-[13px] md:text-[10px] lg:text-[13px]  font-semibold text-violet-900 mb-2 tracking-wide">
                   Jasmin Lowery
                 </p>
-                <p className="text-[13.5px] md:text-[10.5px] lg:text-[13px] leading-snug message-area">
+                <p className="text-[13.5px] md:text-[10.5px] lg:text-[14px] leading-snug message-area">
                   Also, I updated the color tokens in the design file.
                   <br />
                   Please sync before starting new screens.
@@ -548,7 +552,7 @@ export const Pract = () => {
                 <p className="text-[13px] md:text-[10px] lg:text-[13px] font-semibold text-violet-900 mb-2 tracking-wide">
                   Alex Hunt
                 </p>
-                <p className="text-[13.5px] md:text-[10.5px] lg:text-[13px] leading-snug message-area">
+                <p className="text-[13.5px] md:text-[10.5px] lg:text-[14px] leading-snug message-area">
                   Can everyone review the prototype by EOD?
                   <br />
                   We have a client call tomorrow at 10am.
@@ -572,8 +576,8 @@ export const Pract = () => {
           <div className="w-full pt-4 flex justify-end">
             <div className="flex items-end gap-1">
               <div className="bg-violet-500 border border-slate-100 rounded-2xl rounded-br-sm px-3 py-3 w-fit">
-                <p className="text-[13.5px] md:text-[10.5px] lg:text-[13px] leading-snug text-white">
-                  Sure! I'll check it and leave comments before 5pm.
+                <p className="text-[13.5px] md:text-[10.5px] lg:text-[14px] leading-snug text-white">
+                  Sure! I'll check it and leave <br /> comments before 5pm.
                 </p>
                 <div className="flex justify-end text-white text-xs pt-1">
                   <div className="flex gap-1">
@@ -604,7 +608,7 @@ export const Pract = () => {
                 <p className="text-[13px] md:text-[10px] lg:text-[13px]  font-semibold text-violet-900 mb-2 tracking-wide">
                   Jasmin Lowery
                 </p>
-                <p className="text-[13.5px] md:text-[10.5px] lg:text-[13px] leading-snug message-area">
+                <p className="text-[13.5px] md:text-[10.5px] lg:text-[14px] leading-snug message-area">
                   I shared the Figma link in the thread below.
                   <br />
                   Make sure you have edit access!
@@ -631,7 +635,7 @@ export const Pract = () => {
                 <p className="text-[13px] md:text-[10px] lg:text-[13px]  font-semibold text-violet-900 mb-2 tracking-wide">
                   Alex Hunt
                 </p>
-                <p className="text-[13.5px] md:text-[10.5px] lg:text-[13px] leading-snug message-area">
+                <p className="text-[13.5px] md:text-[10.5px] lg:text-[14px] leading-snug message-area">
                   Thanks Jasmin. @everyone please drop a once reviewed.
                 </p>
                 <div className="flex justify-end text-slate-500 text-xs pt-1">
@@ -650,8 +654,8 @@ export const Pract = () => {
           <div className="w-full pt-4 flex justify-end">
             <div className="flex items-end gap-1">
               <div className="bg-violet-500 border border-slate-100 rounded-2xl rounded-br-sm px-3 py-3 w-fit">
-                <p className="text-[13.5px] md:text-[10.5px] lg:text-[13px] leading-snug text-white">
-                  Done! Left a few comments on the onboarding flow.
+                <p className="text-[13.5px] md:text-[10.5px] lg:text-[14px] leading-snug text-white">
+                  Done! Left a few comments on the <br /> onboarding flow.
                 </p>
                 <div className="flex justify-end text-white text-xs pt-1">
                   <div className="flex gap-1">
@@ -682,7 +686,7 @@ export const Pract = () => {
                 <p className="text-[13px] md:text-[10px] lg:text-[13px]  font-semibold text-violet-900 mb-2 tracking-wide">
                   Jasmin Lowery
                 </p>
-                <p className="text-[13.5px] md:text-[10.5px] lg:text-[13px] leading-snug message-area">
+                <p className="text-[13.5px] md:text-[10.5px] lg:text-[14px] leading-snug message-area">
                   Great feedback! I'll address them tonight.
                   <br />
                   The new component library is almost ready too.
@@ -714,7 +718,7 @@ export const Pract = () => {
                 <p className="text-[13px] md:text-[10px] lg:text-[13px] font-semibold text-violet-900 mb-2 tracking-wide">
                   Alex Hunt
                 </p>
-                <p className="text-[13.5px] md:text-[10.5px] lg:text-[13px] leading-snug message-area">
+                <p className="text-[13.5px] md:text-[10.5px] lg:text-[14px] leading-snug message-area">
                   Perfect. Let's sync at 9am tomorrow before the call.
                 </p>
                 <div className="flex justify-end text-slate-500 text-xs pt-1">
@@ -733,7 +737,7 @@ export const Pract = () => {
           <div className="w-full pt-4 pb-2 flex justify-end">
             <div className="flex items-end gap-1">
               <div className="bg-violet-500 border border-slate-100 rounded-2xl rounded-br-sm px-3 py-3 w-fit">
-                <p className="text-[13.5px] md:text-[10.5px] lg:text-[13px]leading-snug text-white">
+                <p className="text-[13.5px] md:text-[10.5px] lg:text-[14px]leading-snug text-white">
                   Sounds good. See you all at 9!
                 </p>
                 <div className="flex justify-end text-white text-xs pt-1">
@@ -840,10 +844,10 @@ export const Pract = () => {
 
           <div className="flex flex-col gap-3 ">
             {members.map((m) => (
-              <div key={m.name} className="flex items-center gap-2.5 px-2">
+              <div key={m.name} className="flex items-center gap-2.5 px-1">
                 <img
                   src={m.avatar}
-                  className="w-11 h-13 rounded-xl object-cover p-1"
+                  className="w-12 h-13 rounded-xl object-cover p-1"
                 />
                 <span className="text-xs font-bold text-gray-900 flex-1">
                   {m.name}

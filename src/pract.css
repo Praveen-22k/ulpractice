@@ -148,13 +148,13 @@
 
 @media (min-width: 768px) {
   .chat-name {
-    font-size: 10px;
+    font-size: 13px;
   } /* md */
 }
 
 @media (min-width: 1024px) {
   .chat-name {
-    font-size: 14px;
+    font-size: 15px;
   } /* lg */
 }
 
@@ -167,6 +167,11 @@
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+@media (min-width: 1024px) {
+  .chat-preview {
+    font-size: 20px;
+  } /* lg */
 }
 
 .chat-preview span {
