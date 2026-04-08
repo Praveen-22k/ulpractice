@@ -130,6 +130,8 @@ export const Pract = () => {
       });
       setMessages((prev) => [...prev, res.data]);
       setInputText("");
+      const updatedChats = await getAllChats();
+      setChats(updatedChats.data);
     } catch (err) {
       console.error("Failed to send message:", err);
     }
@@ -138,6 +140,27 @@ export const Pract = () => {
   // Send on Enter key
   const handleKeyDown = (e) => {
     if (e.key === "Enter") handleSend();
+  };
+
+  const formatTime = (timestamp) => {
+    if (!timestamp) return "";
+
+    const now = new Date();
+    const msgTime = new Date(timestamp);
+    const diffMs = now - msgTime;
+    const diffMins = Math.floor(diffMs / 60000);
+    const diffHours = Math.floor(diffMs / 3600000);
+    const diffDays = Math.floor(diffMs / 86400000);
+
+    if (diffMins < 1) return "just now";
+    if (diffMins < 60) return `${diffMins}m ago`;
+    if (diffHours < 24)
+      return msgTime.toLocaleTimeString([], {
+        hour: "2-digit",
+        minute: "2-digit",
+      });
+    if (diffDays < 7) return `${diffDays}d ago`;
+    return msgTime.toLocaleDateString();
   };
 
   return (
@@ -175,13 +198,13 @@ export const Pract = () => {
             <div className="flex flex-col items-center justify-center gap-1 cursor-pointer hover:bg-gray-700 hover:text-white transition-all duration-200 rounded-xl w-full min-h-[48px] px-1 py-1 md:py-2 lg:py-2">
               <div className="relative">
                 <IoChatboxSharp className="size-4 md:size-5 lg:size-6" />
-                <span
+                {/* <span
                   className="absolute -top-1 -right-1 text-white rounded-full flex items-center justify-center leading-none
                     text-[7px] w-3 h-3 md:text-[7px] md:w-4 md:h-4 lg:text-[9px] lg:w-4 lg:h-4"
                   style={{ background: "#fa7a50" }}
                 >
                   43
-                </span>
+                </span> */}
               </div>
               <div className="text-[8px] md:text-[9px] text-center lg:text-[12px]">
                 All chats
@@ -191,13 +214,13 @@ export const Pract = () => {
             <div className="flex flex-col items-center justify-center gap-1 cursor-pointer hover:bg-gray-700 hover:text-white transition-all duration-200 rounded-xl w-full min-h-[48px] px-1 py-1 md:py-2 lg:py-2">
               <div className="relative">
                 <FaFolder className="size-4 md:size-5 lg:size-6" />
-                <span
+                {/* <span
                   className="absolute -top-1 -right-1 text-white rounded-full flex items-center justify-center leading-none
                     text-[7px] w-3 h-3 md:text-[7px] md:w-4 md:h-4 lg:text-[9px] lg:w-4 lg:h-4"
                   style={{ background: "#fa7a50" }}
                 >
                   4
-                </span>
+                </span> */}
               </div>
               <div className="text-[8px] md:text-[9px] text-center lg:text-[12px]">
                 work
@@ -323,7 +346,7 @@ export const Pract = () => {
                 </div>
               </div>
               <div className="chat-meta">
-                <span className="chat-time">{chat.time}</span>
+                <span className="chat-time">{formatTime(chat.time)}</span>
                 <div className="flex items-center gap-1">
                   {chat.badge > 0 && (
                     <span className="chat-badge">{chat.badge}</span>
@@ -356,7 +379,7 @@ export const Pract = () => {
             </button>
 
             <div>
-              <div className="text-2xl md:text-xl lg:text-3xl font-medium">
+              <div className="text-sm md:text-xl lg:text-3xl font-medium">
                 {activeChat?.name || "Select a chat"}
               </div>
               <div className="text-gray-400 text-sm md:text-xs lg:text-sm">
@@ -366,9 +389,9 @@ export const Pract = () => {
           </div>
 
           <div className="flex gap-6 text-gray-400 pt-3 pr-3">
-            <FiSearch className="size-1 md:size-5 lg:size-7" />
-            <FiPhone className="size-1 md:size-5 lg:size-7" />
-            <BsThreeDotsVertical className="size-1 md:size-5 lg:size-7" />
+            <FiSearch className="size-4 md:size-5 lg:size-7" />
+            <FiPhone className="size-4 md:size-5 lg:size-7" />
+            <BsThreeDotsVertical className="size-4 md:size-5 lg:size-7" />
           </div>
         </div>
 
