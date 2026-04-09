@@ -6,5 +6,11 @@ export default defineConfig({
   plugins: [react(), tailwindcss()],
   server: {
     allowedHosts: ["ashen-unconsociated-ricki.ngrok-free.dev"],
+    proxy: {
+      "/api": {
+        target: "http://localhost:5000", // ← your backend port
+        changeOrigin: true,
+      },
+    },
   },
 });

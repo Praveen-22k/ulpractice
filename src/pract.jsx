@@ -1,12 +1,5 @@
-import {
-  FaFolder,
-  FaArchive,
-  FaUserAlt,
-  FaThumbsUp,
-  FaEye,
-  FaFire,
-} from "react-icons/fa";
-import { GiMoebiusTriangle } from "react-icons/gi";
+import { FaFolder, FaArchive, FaUserAlt, FaEye } from "react-icons/fa";
+
 import { IoChatboxSharp, IoSend } from "react-icons/io5";
 import { MdModeEdit } from "react-icons/md";
 import { TbLogout2 } from "react-icons/tb";

@@ -1,12 +1,13 @@
 import { useState } from "react";
 import { FiMail, FiLock, FiEye, FiEyeOff } from "react-icons/fi";
 import { GiMoebiusTriangle } from "react-icons/gi";
+import { FaPhoneAlt } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
 export const SignIn = () => {
   const navigate = useNavigate();
-  const [form, setForm] = useState({ email: "", password: "" });
+  const [form, setForm] = useState({ phone: "", password: "" });
   const [showPassword, setShowPassword] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
@@ -18,18 +19,18 @@ export const SignIn = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!form.email || !form.password) {
+    if (!form.phone || !form.password) {
       setError("Please fill in all fields.");
       return;
     }
     setLoading(true);
     try {
-      const res = await axios.post("/api/auth/login", form);
+      const res = await axios.post("/api/auth/signin", form);
       localStorage.setItem("token", res.data.token);
       localStorage.setItem("user", JSON.stringify(res.data.user));
       navigate("/chat");
     } catch (err) {
-      setError(err.response?.data?.error || "Invalid email or password.");
+      setError(err.response?.data?.error || "Invalid Phno or password.");
     } finally {
       setLoading(false);
     }
@@ -70,12 +71,11 @@ export const SignIn = () => {
                 <FaPhoneAlt className="text-gray-600 shrink-0" size={15} />
                 <input
                   type="number"
-                  name="phno"
-                  value={form.phno}
+                  name="phone"
+                  value={form.phone}
                   onChange={handleChange}
                   placeholder="your Phno"
                   className="flex-1 bg-transparent text-sm text-black-200 placeholder-black-600 outline-none"
-                  autoComplete="email"
                 />
               </div>
             </div>
@@ -162,7 +162,7 @@ export const SignIn = () => {
         <p className="text-center text-sm text-gray-600 mt-6">
           Don't have an account?{" "}
           <button
-            onClick={() => navigate("/register")}
+            onClick={() => navigate("/chat")}
             className="text-black-400 hover:text-violet-500 transition-colors font-medium"
           >
             Sign up

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { FiMail, FiLock, FiEye, FiEyeOff } from "react-icons/fi";
+import { FiLock, FiEye, FiEyeOff, FiUser } from "react-icons/fi";
 import { GiMoebiusTriangle } from "react-icons/gi";
 import { FaPhoneAlt } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
@@ -7,7 +7,7 @@ import axios from "axios";
 
 export const SignUp = () => {
   const navigate = useNavigate();
-  const [form, setForm] = useState({ email: "", password: "" });
+  const [form, setForm] = useState({ name: "", phone: "", password: "" });
   const [showPassword, setShowPassword] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
@@ -19,18 +19,22 @@ export const SignUp = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!form.email || !form.password) {
+    if (!form.name || !form.phone || !form.password) {
       setError("Please fill in all fields.");
       return;
     }
     setLoading(true);
     try {
-      const res = await axios.post("/api/auth/login", form);
+      const res = await axios.post("/api/auth/signup", {
+        name: form.name,
+        phone: form.phone,
+        password: form.password,
+      });
       localStorage.setItem("token", res.data.token);
       localStorage.setItem("user", JSON.stringify(res.data.user));
-      navigate("/chat");
+      navigate("/signin");
     } catch (err) {
-      setError(err.response?.data?.error || "Invalid email or password.");
+      setError(err.response?.data?.error || "Signup failed. Try again.");
     } finally {
       setLoading(false);
     }
@@ -54,62 +58,55 @@ export const SignUp = () => {
             <GiMoebiusTriangle className="text-violet-400 text-2xl" />
           </div>
           <h1 className="text-black text-2xl font-semibold tracking-tight">
-            Welcome back
+            Create account
           </h1>
-          <p className="text-gray-700 text-sm mt-1">Sigup in to your account</p>
+          <p className="text-gray-700 text-sm mt-1">Sign up to get started</p>
         </div>
 
         {/* Card */}
         <div className="bg-white border border-black rounded-3xl p-8">
           <form onSubmit={handleSubmit} className="flex flex-col gap-4">
-            {/* Email */}
-
+            {/* Name */}
             <div className="flex flex-col gap-1.5">
               <label className="text-sm text-gray-500 font-medium tracking-wide uppercase">
                 Username
               </label>
               <div className="flex items-center gap-3 bg-white/[0.04] border border-black rounded-xl px-4 py-3 focus-within:border-violet-500/50 transition-colors">
-                <FiMail className="text-gray-600 shrink-0" size={15} />
+                <FiUser className="text-gray-600 shrink-0" size={15} />
                 <input
                   type="text"
                   name="name"
                   value={form.name}
                   onChange={handleChange}
-                  placeholder="yourname"
-                  className="flex-1 bg-transparent text-sm text-black-200 placeholder-black-600 outline-none"
+                  placeholder="Your name"
+                  className="flex-1 bg-transparent text-sm text-black placeholder-gray-400 outline-none"
                 />
               </div>
             </div>
+
+            {/* Phone */}
             <div className="flex flex-col gap-1.5">
               <label className="text-sm text-gray-500 font-medium tracking-wide uppercase">
-                Phone no
+                Phone No
               </label>
               <div className="flex items-center gap-3 bg-white/[0.04] border border-black rounded-xl px-4 py-3 focus-within:border-violet-500/50 transition-colors">
                 <FaPhoneAlt className="text-gray-600 shrink-0" size={15} />
                 <input
                   type="tel"
-                  name="phno"
+                  name="phone"
                   value={form.phone}
                   onChange={handleChange}
-                  placeholder="your phno"
-                  className="flex-1 bg-transparent text-sm text-black-200 placeholder-black-600 outline-none"
+                  placeholder="9876543210"
+                  className="flex-1 bg-transparent text-sm text-black placeholder-gray-400 outline-none"
                 />
               </div>
             </div>
 
             {/* Password */}
             <div className="flex flex-col gap-1.5">
-              <div className="flex justify-between items-center">
-                <label className="text-sm text-gray-500 font-medium tracking-wide uppercase">
-                  Password
-                </label>
-                <button
-                  type="button"
-                  className="text-sm text-black-500 hover:text-violet-300 transition-colors"
-                >
-                  Forgot password?
-                </button>
-              </div>
+              <label className="text-sm text-gray-500 font-medium tracking-wide uppercase">
+                Password
+              </label>
               <div className="flex items-center gap-3 bg-white/[0.04] border border-black rounded-xl px-4 py-3 focus-within:border-violet-500/50 transition-colors">
                 <FiLock className="text-gray-600 shrink-0" size={15} />
                 <input
@@ -118,8 +115,8 @@ export const SignUp = () => {
                   value={form.password}
                   onChange={handleChange}
                   placeholder="••••••••"
-                  className="flex-1 bg-transparent text-sm text-black-500 placeholder-gray-600 outline-none"
-                  autoComplete="current-password"
+                  className="flex-1 bg-transparent text-sm text-black placeholder-gray-600 outline-none"
+                  autoComplete="new-password"
                 />
                 <button
                   type="button"
@@ -166,7 +163,7 @@ export const SignUp = () => {
                       d="M4 12a8 8 0 018-8v8H4z"
                     />
                   </svg>
-                  Signing in...
+                  Signing up...
                 </span>
               ) : (
                 "Sign Up"
@@ -175,12 +172,12 @@ export const SignUp = () => {
           </form>
         </div>
 
-        {/* Sign up link */}
+        {/* Sign in link */}
         <p className="text-center text-sm text-gray-600 mt-6">
-          Don't have an account?{" "}
+          Already have an account?{" "}
           <button
-            onClick={() => navigate("/register")}
-            className="text-black-400 hover:text-violet-500 transition-colors font-medium"
+            onClick={() => navigate("/signin")}
+            className="text-black hover:text-violet-500 transition-colors font-medium"
           >
             Sign In
           </button>
