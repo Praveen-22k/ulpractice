@@ -37,6 +37,7 @@ import Nat4 from "./assets/nat4.jpg";
 import logo from "./assets/logo.png";
 import "./pract.css";
 import { getAllChats, getMessages, sendMessage } from "./api/chatApi";
+import { useDebounce } from "./hooks/useDebounce";
 
 export const Pract = () => {
   const [navOpen, setNavOpen] = useState(false);
@@ -46,6 +47,7 @@ export const Pract = () => {
   const [activeChat, setActiveChat] = useState(null);
   const [inputText, setInputText] = useState("");
   const [loading, setLoading] = useState(false);
+
   const messagesEndRef = useRef(null);
 
   const members = [
@@ -80,6 +82,13 @@ export const Pract = () => {
       isAdmin: false,
     },
   ];
+
+  const [searchQuery, setSearchQuery] = useState("");
+  const debouncedSearch = useDebounce(searchQuery, 300);
+
+  const filteredChats = chats.filter((chat) =>
+    chat.name.toLowerCase().includes(debouncedSearch.toLowerCase()),
+  );
 
   // fetch chat list - postgresql
   useEffect(() => {
@@ -301,6 +310,8 @@ export const Pract = () => {
               <input
                 type="text"
                 placeholder="Search"
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
                 className="bg-transparent outline-none text-xs text-gray-900 w-full placeholder-gray-700"
               />
             </div>
@@ -309,7 +320,7 @@ export const Pract = () => {
 
         {/* Chat List */}
         <div className="chat-list">
-          {chats.map((chat) => (
+          {filteredChats.map((chat) => (
             <div
               key={chat.id}
               onClick={() => {
