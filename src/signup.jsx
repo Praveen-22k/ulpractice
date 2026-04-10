@@ -30,7 +30,7 @@ export const SignUp = () => {
         phone: form.phone,
         password: form.password,
       });
-      localStorage.setItem("token", res.data.token);
+      localStorage.setItem("accessToken", res.data.token);
       localStorage.setItem("user", JSON.stringify(res.data.user));
       navigate("/signin");
     } catch (err) {

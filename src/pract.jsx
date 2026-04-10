@@ -40,9 +40,10 @@ export const Pract = () => {
   const [activeChat, setActiveChat] = useState(null);
   const [inputText, setInputText] = useState("");
   const [loading, setLoading] = useState(false);
-
+  const [searchQuery, setSearchQuery] = useState("");
   const messagesEndRef = useRef(null);
-
+  const debouncedSearch = useDebounce(searchQuery, 300);
+  const currentUser = JSON.parse(localStorage.getItem("user"));
   const members = [
     {
       name: "Tanisha Combs",
@@ -76,9 +77,6 @@ export const Pract = () => {
     },
   ];
 
-  const [searchQuery, setSearchQuery] = useState("");
-  const debouncedSearch = useDebounce(searchQuery, 300);
-
   const filteredChats = chats.filter((chat) =>
     chat.name.toLowerCase().includes(debouncedSearch.toLowerCase()),
   );
@@ -106,7 +104,8 @@ export const Pract = () => {
       setLoading(true);
       try {
         const res = await getMessages(activeChat.id);
-        setMessages(res.data);
+        console.log("MESSAGES RESPONSE:", res.data); // 👈 add this
+        setMessages(Array.isArray(res.data) ? res.data : []);
       } catch (err) {
         console.error("Failed to fetch messages:", err);
       } finally {
@@ -124,18 +123,30 @@ export const Pract = () => {
   // Send message
   const handleSend = async () => {
     if (!inputText.trim() || !activeChat) return;
+
     try {
       const res = await sendMessage(activeChat.id, {
-        sender: "You",
         text: inputText,
         avatar: "https://i.pravatar.cc/150?img=47",
       });
-      setMessages((prev) => [...prev, res.data]);
+
+      setMessages((prev) => [...(Array.isArray(prev) ? prev : []), res.data]);
       setInputText("");
-      const updatedChats = await getAllChats();
-      setChats(updatedChats.data);
+
+      // ✅ Update chat preview locally
+      setChats((prev) =>
+        prev.map((chat) =>
+          chat.id === activeChat.id
+            ? {
+                ...chat,
+                preview: inputText,
+                time: new Date().toISOString(),
+              }
+            : chat,
+        ),
+      );
     } catch (err) {
-      console.error("Failed to send message:", err);
+      console.error(err);
     }
   };
 
@@ -407,68 +418,79 @@ export const Pract = () => {
             </div>
           ) : (
             <>
-              {messages.map((msg) => (
-                <div
-                  key={msg.id}
-                  className={`w-full pt-4 flex ${
-                    msg.sender === "You" ? "justify-end" : "justify-start"
-                  }`}
-                >
-                  <div className="flex items-end gap-1">
-                    {msg.sender !== "You" && (
-                      <img
-                        src={msg.avatar}
-                        alt={msg.sender}
-                        className="w-10 h-10 rounded-xl object-cover flex-shrink-0 border-2 border-rose-200"
-                      />
-                    )}
+              {messages.map((msg) => {
+                const isMe = msg.sender === currentUser?.name;
 
-                    <div
-                      className={`border border-slate-100 rounded-2xl px-3 py-3 w-fit ${
-                        msg.sender === "You"
-                          ? "bg-violet-500 rounded-br-sm"
-                          : "design-chat rounded-tl-sm"
-                      }`}
-                    >
-                      {msg.sender !== "You" && (
-                        <p className="text-[13px] font-semibold text-violet-900 mb-2">
-                          {msg.sender}
-                        </p>
+                return (
+                  <div
+                    key={msg.id}
+                    className={`w-full pt-4 flex ${
+                      isMe ? "justify-end" : "justify-start"
+                    }`}
+                  >
+                    <div className="flex items-end gap-1">
+                      {/* LEFT avatar */}
+                      {!isMe && (
+                        <img
+                          src={msg.avatar}
+                          alt={msg.sender}
+                          className="w-10 h-10 rounded-xl object-cover flex-shrink-0 border-2 border-rose-200"
+                        />
                       )}
-                      <p
-                        className={`text-[13.5px] lg:text-[14px] leading-snug ${
-                          msg.sender === "You" ? "text-white" : "message-area"
-                        }`}
-                      >
-                        {msg.text}
-                      </p>
+
+                      {/* MESSAGE BOX */}
                       <div
-                        className={`flex justify-end text-xs pt-1 ${
-                          msg.sender === "You" ? "text-white" : "text-slate-500"
+                        className={`border border-slate-100 rounded-2xl px-3 py-3 w-fit ${
+                          isMe
+                            ? "bg-violet-500 rounded-br-sm"
+                            : "design-chat rounded-tl-sm"
                         }`}
                       >
-                        <div className="flex items-center gap-1">
-                          <FaEye />
-                          <span>
-                            {new Date(msg.timestamp).toLocaleTimeString([], {
-                              hour: "2-digit",
-                              minute: "2-digit",
-                            })}
-                          </span>
+                        {/* Sender name */}
+                        {!isMe && (
+                          <p className="text-[13px] font-semibold text-violet-900 mb-2">
+                            {msg.sender}
+                          </p>
+                        )}
+
+                        {/* Message text */}
+                        <p
+                          className={`text-[13.5px] lg:text-[14px] leading-snug ${
+                            isMe ? "text-white" : "message-area"
+                          }`}
+                        >
+                          {msg.text}
+                        </p>
+
+                        {/* Time */}
+                        <div
+                          className={`flex justify-end text-xs pt-1 ${
+                            isMe ? "text-white" : "text-slate-500"
+                          }`}
+                        >
+                          <div className="flex items-center gap-1">
+                            <span>
+                              {new Date(msg.timestamp).toLocaleTimeString([], {
+                                hour: "2-digit",
+                                minute: "2-digit",
+                              })}
+                            </span>
+                          </div>
                         </div>
                       </div>
-                    </div>
 
-                    {msg.sender === "You" && (
-                      <img
-                        src="https://i.pravatar.cc/150?img=47"
-                        alt="You"
-                        className="w-10 h-10 rounded-xl object-cover flex-shrink-0 border-2 border-rose-200"
-                      />
-                    )}
+                      {/* RIGHT avatar */}
+                      {isMe && (
+                        <img
+                          src="https://i.pravatar.cc/150?img=47"
+                          alt="You"
+                          className="w-10 h-10 rounded-xl object-cover flex-shrink-0 border-2 border-rose-200"
+                        />
+                      )}
+                    </div>
                   </div>
-                </div>
-              ))}
+                );
+              })}
               <div ref={messagesEndRef} />
             </>
           )}
