@@ -20,10 +20,9 @@
 import axios from "axios";
 
 const API = axios.create({
-  baseURL: "http://localhost:5000/api", // change if needed
+  baseURL: "/api", // change if needed
 });
 
-// ✅ Attach token automatically
 API.interceptors.request.use((req) => {
   const token = localStorage.getItem("accessToken");
   console.log("TOKEN SENT:", token);
@@ -42,3 +41,9 @@ export const getMessages = (chatId) => API.get(`/messages/${chatId}`);
 // SEND message (auth required)
 export const sendMessage = (chatId, data) =>
   API.post(`/messages/${chatId}`, data);
+
+// GET all users
+export const getAllUsers = () => API.get("/users");
+
+// CREATE new conversation
+export const createChat = (otherUserId) => API.post("/chats", { otherUserId });

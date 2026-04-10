@@ -29,7 +29,13 @@ import Nat3 from "./assets/nat3.jpg";
 import Nat4 from "./assets/nat4.jpg";
 import logo from "./assets/logo.png";
 import "./pract.css";
-import { getAllChats, getMessages, sendMessage } from "./api/chatApi";
+import {
+  getAllChats,
+  getMessages,
+  sendMessage,
+  getAllUsers,
+  createChat,
+} from "./api/chatApi";
 import { useDebounce } from "./hooks/useDebounce";
 
 export const Pract = () => {
@@ -41,6 +47,8 @@ export const Pract = () => {
   const [inputText, setInputText] = useState("");
   const [loading, setLoading] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
+  const [showUsers, setShowUsers] = useState(false);
+  const [allUsers, setAllUsers] = useState([]);
   const messagesEndRef = useRef(null);
   const debouncedSearch = useDebounce(searchQuery, 300);
   const currentUser = JSON.parse(localStorage.getItem("user"));
@@ -176,6 +184,39 @@ export const Pract = () => {
     return msgTime.toLocaleDateString();
   };
 
+  const handleLogout = () => {
+    localStorage.clear();
+    window.location.href = "/signin";
+  };
+
+  const fetchUsers = async () => {
+    try {
+      if (showUsers) {
+        setShowUsers(false); // ✅ if already open, close it
+        return;
+      }
+      const res = await getAllUsers();
+      setAllUsers(res.data);
+      setShowUsers(true);
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
+  const startChat = async (otherUserId) => {
+    try {
+      const res = await createChat(otherUserId);
+      setShowUsers(false);
+      // refresh chats
+      const chatsRes = await getAllChats();
+      setChats(chatsRes.data);
+      setActiveChat(res.data);
+      setChatOpen(true);
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
   return (
     <div className="flex h-screen bg-black overflow-hidden">
       {/* Overlay (sm only) */}
@@ -279,7 +320,10 @@ export const Pract = () => {
           </div>
 
           {/* Bottom - Logout */}
-          <div className="flex flex-col items-center justify-center gap-1 cursor-pointer hover:bg-gray-700 hover:text-white transition-all duration-200 rounded-xl w-full min-h-[48px] px-1 py-1 md:py-2 lg:py-2">
+          <div
+            className="flex flex-col items-center justify-center gap-1 cursor-pointer hover:bg-gray-700 hover:text-white transition-all duration-200 rounded-xl w-full min-h-[48px] px-1 py-1 md:py-2 lg:py-2"
+            onClick={handleLogout}
+          >
             <TbLogout2 className="size-4 md:size-5 lg:size-6" />
             <div className="text-[8px] md:text-[9px] lg:text-[12px] text-center">
               Logout
@@ -319,7 +363,33 @@ export const Pract = () => {
                 className="bg-transparent outline-none text-xs text-gray-900 w-full placeholder-gray-700"
               />
             </div>
+            <button
+              onClick={fetchUsers}
+              className="flex-shrink-0 bg-violet-500 text-white rounded-xl p-2 hover:bg-violet-600 transition"
+            >
+              <MdModeEdit size={18} />
+            </button>
           </div>
+
+          {/* ✅ Users List Dropdown */}
+          {showUsers && (
+            <div className="mt-2 bg-white border border-gray-200 rounded-xl shadow-lg max-h-60 overflow-y-auto">
+              {allUsers.map((user) => (
+                <div
+                  key={user.id}
+                  onClick={() => startChat(user.id)}
+                  className="flex items-center gap-3 px-4 py-3 hover:bg-gray-100 cursor-pointer"
+                >
+                  <div className="w-9 h-9 rounded-full bg-violet-500 text-white flex items-center justify-center text-sm font-bold">
+                    {user.initials || user.name[0]}
+                  </div>
+                  <span className="text-sm font-medium text-gray-800">
+                    {user.name}
+                  </span>
+                </div>
+              ))}
+            </div>
+          )}
         </div>
 
         {/* Chat List */}

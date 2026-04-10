@@ -162,7 +162,7 @@ export const SignIn = () => {
         <p className="text-center text-sm text-gray-600 mt-6">
           Don't have an account?{" "}
           <button
-            onClick={() => navigate("/chat")}
+            onClick={() => navigate("/signup")}
             className="text-black-400 hover:text-violet-500 transition-colors font-medium"
           >
             Sign up
